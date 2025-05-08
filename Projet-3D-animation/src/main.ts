@@ -4,7 +4,14 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
 import { GUI } from 'dat.gui'
 
+//const scene = new THREE.Scene()
+//scene.background = new THREE.Color(0x123456)
+
+//const scene = new THREE.Scene()
+//scene.background = new THREE.TextureLoader().load('https://sbcode.net/img/grid.png')
+
 const scene = new THREE.Scene()
+scene.background = new THREE.CubeTextureLoader().setPath('https://sbcode.net/img/').load(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'])
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 camera.position.z = 1.5
@@ -45,8 +52,8 @@ cameraFolder.open()
 function animate() {
   requestAnimationFrame(animate)
 
-  //cube.rotation.x += 0.01
-  //cube.rotation.y += 0.01
+  cube.rotation.x += 0.01
+  cube.rotation.y += 0.01
 
   renderer.render(scene, camera)
 
